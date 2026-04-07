@@ -1,7 +1,9 @@
+package com.mycompany.Fazenda;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
+
 
 public class Fazenda {
     private static List<Animais> plantel = new ArrayList<>();
@@ -82,7 +84,7 @@ public class Fazenda {
         
         for (Animais a : plantel) {
             if (a.getId().equals(idBusca) && a.getStatus().equals("Ativo")) {
-                System.out.println("Tipo: " + a.getTipo() + " | ID: " + a.getId() + " | Status: " + a.getStatus() + " | Peso: " + a.getPeso() + " | Altura: " + a.getAltura());
+                System.out.println("Tipo: " + a.getTipo() + " | ID: " + a.getId() + " | Status: " + a.getStatus() + " | Peso: " + a.getPeso() + " | Altura: " + a.getAltura() + " | Comprimento: " + a.getComprimento() + " | Largura: " + a.getLargura());
                 return;
             }
         }
@@ -161,7 +163,7 @@ public class Fazenda {
         System.out.println("--- Relatório de " + tipoBusca + " ---");
         for (Animais a : plantel) {
             if (a.getTipo().equalsIgnoreCase(tipoBusca) && a.getStatus().equals("Ativo")) {
-                System.out.println("ID: " + a.getId() + " | Peso: " + a.getPeso() + " | Altura: " + a.getAltura());
+                System.out.println("ID: " + a.getId() + " | Peso: " + a.getPeso() + " | Altura: " + a.getAltura() + " | Comprimento: " + a.getComprimento() + " | Largura: " + a.getLargura());
             }
         }
     }
