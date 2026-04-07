@@ -1,4 +1,4 @@
-
+package com.mycompany.Fazenda;
 
 public class Equinos extends Animais {
 
