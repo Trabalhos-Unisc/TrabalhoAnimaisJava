@@ -1,0 +1,56 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.trabalho1;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Fazenda {
+    
+    // lista única de todos os animais
+    private List<Animais> animais;
+
+    public Fazenda() {
+        animais = new ArrayList<>();
+    }
+
+    // adicionar animal (qualquer tipo)
+    public void adicionar(Animais a) {
+        animais.add(a);
+    }
+
+    // listar todos os animais
+    public void listarTodos() {
+        for (Animais a : animais) {
+            System.out.println("ID: " + a.getId());
+            System.out.println("Tipo: " + a.getTipo());
+            System.out.println("Altura: " + a.getAltura());
+            System.out.println("Comprimento: " + a.getComprimento());
+            System.out.println("Largura: " + a.getLargura());
+            System.out.println("Peso: " + a.getPeso());
+            System.out.println("Status: " + a.getStatus());
+            System.out.println("----------------------");
+        }
+    }
+
+    // buscar animal pelo ID
+    public Animais getById(String id) {
+        for (Animais a : animais) {
+            if (a.getId().equals(id)) {
+                return a;
+            }
+        }
+        return null;
+    }
+
+    // listar animais por tipo
+    public void listarPorTipo(String tipo) {
+        for (Animais a : animais) {
+            if (a.getTipo().equalsIgnoreCase(tipo) && a.getStatus().equals("Ativo")) {
+                System.out.println("ID: " + a.getId() + " | Peso: " + a.getPeso() + " | Status: " + a.getStatus());
+            }
+        }
+    }
+}
