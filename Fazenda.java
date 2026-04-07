@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class Fazenda {
     private static List<Animais> plantel = new ArrayList<>();
@@ -34,12 +35,14 @@ public class Fazenda {
     }
 
     public static void incluirAnimal() {
-        System.out.println("Qual tipo de animal deseja incluir? (1. Bovino)");
+        System.out.println("Qual tipo de animal deseja incluir?");
+        System.out.println("1. Bovino | 2. Suíno | 3. Equino");
+        System.out.print("Escolha: ");
         int tipo = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.print("ID: ");
-        String id = scanner.nextLine();
+        String id = UUID.randomUUID().toString();
+        System.out.println("-> Gerando cadastro do animal com ID: " + id);
         
         System.out.print("Altura: ");
         float alt = scanner.nextFloat();
@@ -51,11 +54,26 @@ public class Fazenda {
         float peso = scanner.nextFloat();
         scanner.nextLine();
 
-        if (tipo == 1) {
-            Animais novoAnimal = new Bovinos(id, alt, comp, larg, peso, "Ativo");
-            plantel.add(novoAnimal);
-            System.out.println("Bovino incluído com sucesso!");
+        Animais novoAnimal = null;
+
+        switch (tipo) {
+            case 1:
+                novoAnimal = new Bovinos(id, alt, comp, larg, peso, "Ativo");
+                System.out.println("Bovino incluído com sucesso! Anote o ID: " + id);
+                break;
+            case 2:
+                novoAnimal = new Suinos(id, alt, comp, larg, peso, "Ativo");
+                System.out.println("Suíno incluído com sucesso! Anote o ID: " + id);
+                break;
+            case 3:
+                novoAnimal = new Equinos(id, alt, comp, larg, peso, "Ativo");
+                System.out.println("Equino incluído com sucesso! Anote o ID: " + id);
+                break;
+            default:
+                System.out.println("Opção inválida! Animal não cadastrado.");
         }
+
+        plantel.add(novoAnimal);
     }
 
     public static void consultarAnimal() {
