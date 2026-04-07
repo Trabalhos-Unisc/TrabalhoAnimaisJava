@@ -3,81 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.trabalho1;
-import java.util.UUID;
-import java.util.Arrays;
 
-/**
- *
- * @author m99375
- */
-public class Bovinos {
-    private float altura;
-    private float comprimento;
-    private float largura;
-    private float peso;
-    private String id;
-    private String status;
-    
-    
-    public Bovinos(String id,float altura, float comprimento, float largura, float peso, String status){
-        this.setId(id);
-        this.setAltura(altura);
-        this.setComprimento(comprimento);
-        this.setLargura(largura);
-        this.setPeso(peso);
-        this.setStatus(status);
+public class Bovinos extends Animais {
+
+    public Bovinos(float altura, float comprimento, float largura, float peso, String status) {
+        super(altura, comprimento, largura, peso, status);
     }
-    
-    
-    //SETTERS
-    public void setId(String id){
-        this.id = UUID.randomUUID().toString();
-    }
-    public void setAltura(float altura){
-        if(altura>0){
-            this.altura = altura;
-        }
-        
-    }
-    public void setComprimento(float comprimento){
-        if(comprimento>0){
-        this.comprimento = comprimento;
-        }
-    }
-    public void setLargura(float largura){
-        if(largura>0){
-        this.largura = largura;
-        }
-    }
-    public void setPeso(float peso){
-        if(peso>0){
-        this.peso = peso;
-        }
-    }
-    public void setStatus(String status){
-        String [] opcoes = {"Ativo", "Vendido", "Perdido"};
-        if(Arrays.asList(opcoes).contains(status)){
-            this.status = status;
-        }
-    }
-    
-    //GETTERS
-    public String getId(){
-        return this.id;
-    }
-    public float getAltura(){
-        return this.altura;
-    }
-    public float getComprimento(){
-        return this.comprimento;
-    }
-    public float getLargura(){
-        return this.largura;
-    }
-    public float getPeso(){
-        return this.peso;
-    }
-    public String getStatus(){
-        return this.status;
+
+    @Override
+    public String getTipo() {
+        return "Bovino";
     }
 }
